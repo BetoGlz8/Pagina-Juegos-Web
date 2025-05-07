@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es-mx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memorama</title>
+    <link rel="stylesheet" href="./styles/style1.css"> 
+</head>
+
+<body>
+    <header class="header">
+        <nav class="header__menu">
+            <a class="header__menu__link" href="index.html">Home</a> 
+        </nav>
+    </header>
+
+    <body class="claro">
+        <h1>Juego de Memoria</h1>
+      
+        <!-- Pantalla de configuración mejorada visualmente -->
+        <div id="pantalla-configuracion" class="config-card">
+          <h2>🎮 Configuración del Juego</h2>
+      
+          <div class="config-section">
+            <label><input type="radio" name="modo" value="1" checked /> 1 Jugador</label>
+            <label><input type="radio" name="modo" value="2" /> 2 Jugadores</label>
+          </div>
+      
+          <div class="config-section" id="nombres-jugadores">
+            <input type="text" id="jugador1" placeholder="Nombre del Jugador 1" />
+            <input type="text" id="jugador2" placeholder="Nombre del Jugador 2" style="display: none;" />
+          </div>
+      
+          <div class="config-section">
+            <label><input type="checkbox" id="activarMemoriaPerfecta" /> Modo Memoria Perfecta (3 errores máx)</label>
+            <label><input type="checkbox" id="temaOscuro" /> Tema Oscuro</label>
+          </div>
+      
+          <div class="config-buttons">
+            <button onclick="iniciarDesdeConfiguracion()">🚀 Iniciar Juego</button>
+            <button onclick="resetearPreferencias()">♻️ Restablecer Preferencias</button>
+          </div>
+        </div>
+      
+        <div id="juego" style="display: none;">
+          <div style="display: flex; justify-content: center; gap: 20px; align-items: center; flex-wrap: wrap;">
+            <p id="turnoActual"></p>
+            <p id="temporizador"></p>
+            <p id="intentos"></p>
+            <p id="cronometroTotal"></p>
+          </div>
+          <div class="tablero" id="tablero"></div>
+        </div>
+      
+        <div id="victoria" style="display: none;">
+          <h2 id="mensajeVictoria"></h2>
+          <button onclick="reiniciarJuego()">Jugar de nuevo</button>
+          <button onclick="revanchaRapida()">Revancha rápida</button>
+      
+          <h3>Historial de Partidas</h3>
+          <table id="tabla-records" border="1" style="margin: 0 auto; border-collapse: collapse;">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Modo</th>
+                <th>Jugador(es)</th>
+                <th>Intentos</th>
+                <th>Tiempo</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <button onclick="borrarHistorial()">Borrar Historial</button>
+        </div>
+      
+        <div id="pantalla-burla" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: black; z-index: 9999; justify-content: center; align-items: center; flex-direction: column; color: white; font-size: 3em; text-align: center;">
+          <img id="imagen-burla" src="imagenes/burla.png" alt="burla" style="max-width: 90%; max-height: 70%; margin-bottom: 20px;">
+          <div id="texto-burla">LOOOOSER</div>
+        </div>
+      
+        <audio id="audio-burla" src="audios/risa.mp3" preload="auto"></audio>
+        <script src="script.js"></script>
+      </body>
+      </html>
+            
+
+          

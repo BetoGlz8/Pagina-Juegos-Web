@@ -1,0 +1,196 @@
+
+body {
+  font-family: sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+
+.header{
+  padding: 2% 0% 0% 15%; 
+}
+
+.header__menu{
+   display: flex;
+   gap: 80px;
+}
+
+.header__menu__link{
+   font-family: var(--fuente-montserrat);
+   font-size: 2rem;
+   font-weight: 600;
+   color: #e9c421;
+   text-decoration: none;
+}
+
+.tablero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  grid-gap: 15px;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.tarjeta {
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+  cursor: pointer;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 0.3s;
+}
+
+.tarjeta.volteada {
+  transform: rotateY(180deg);
+}
+
+.cara {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+}
+
+.frontal {
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.trasera {
+  background-color: #3498db;
+  background-size: cover;
+}
+
+body.claro {
+  background-color: #ffffff;
+  color: #000;
+}
+
+body.oscuro {
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+body.oscuro .trasera {
+  background-color: #6b750e;
+}
+
+#temporizador {
+  padding: 6px 12px;
+  border-radius: 8px;
+  min-width: 60px;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.5s ease;
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 1.5em;
+  }
+
+  #pantalla-configuracion,
+  #juego,
+  #victoria {
+    padding: 10px;
+  }
+
+  .tablero {
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    max-width: 100%;
+  }
+
+  .pantalla-burla {
+    font-size: 2em;
+  }
+
+  #imagen-burla {
+    max-height: 50%;
+  }
+}
+
+/* Diseño visual mejorado para la pantalla de configuración */
+.config-card {
+  max-width: 400px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+  color: inherit;
+}
+
+.config-card h2 {
+  margin-bottom: 20px;
+  font-size: 1.6em;
+}
+
+.config-section {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.config-section input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  background: #ffffff10;
+  color: inherit;
+}
+
+.config-section label {
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.config-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.config-buttons button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1em;
+  cursor: pointer;
+  background-color: #3498db;
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+.config-buttons button:hover {
+  background-color: #2980b9;
+}
